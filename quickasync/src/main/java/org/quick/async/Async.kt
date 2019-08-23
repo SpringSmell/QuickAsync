@@ -2,6 +2,8 @@ package org.quick.async
 
 import android.os.Handler
 import android.os.Looper
+import org.quick.async.callback.OnASyncListener
+import org.quick.async.callback.OnIntervalListener
 import java.util.concurrent.Executors
 
 /**
@@ -85,22 +87,7 @@ object Async {
         }
     }
 
-    interface OnIntervalListener<T> : Consumer<T> {
-        fun onNext(value: T)
-    }
 
-    interface OnASyncListener<T> : Consumer<T> {
-        fun onASync(): T
-        fun onError(O_O: Exception) {}
-    }
 
-    interface Consumer<T> {
-        /**
-         * Consume the given value.
-         * @param value the value
-         * @throws Exception on error
-         */
-        @Throws(Exception::class)
-        fun onAccept(value: T)
-    }
+
 }
