@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QuickAsync.iml" filepath="$PROJECT_DIR$/QuickAsync.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/QuickAsync-app.iml" filepath="$PROJECT_DIR$/app/QuickAsync-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quickasync/QuickAsync-quickasync.iml" filepath="$PROJECT_DIR$/quickasync/QuickAsync-quickasync.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-QuickAsync.iml" filepath="$PROJECT_DIR$/project-QuickAsync.iml" />
       <module fileurl="file://$PROJECT_DIR$/quickasync/quickasync.iml" filepath="$PROJECT_DIR$/quickasync/quickasync.iml" />
     </modules>
   </component>

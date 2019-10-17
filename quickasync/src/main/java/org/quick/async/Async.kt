@@ -50,13 +50,13 @@ object Async {
         var steps = if (isReversal) maxSteps else 0L
         if (isReversal)
             while (steps > 0) {
-                steps--
+                steps -= interval
                 runOnUiThread { onIntervalListener.onNext(steps) }
                 Thread.sleep(interval)
             }
         else
             while (steps < maxSteps) {
-                steps++
+                steps += interval
                 runOnUiThread { onIntervalListener.onNext(steps) }
                 Thread.sleep(interval)
             }
@@ -78,16 +78,21 @@ object Async {
      * onASync with false break
      * @param interval 间隔时间（毫秒）
      */
-    fun loop(interval: Long,onASyncListener: OnASyncListener<Boolean>) = executorService.submit {
-//        var steps = 0
-        while (true) {
+    fun loop(interval: Long, onASyncListener: OnASyncListener<Boolean>) = executorService.submit {
+        //        var steps = 0
+        try {
+            while (true) {
 //            steps++
-            if (onASyncListener.onASync()) runOnUiThread { onASyncListener.onAccept(true) } else break
-            Thread.sleep(interval)
+                if (onASyncListener.onASync())
+                    runOnUiThread { onASyncListener.onAccept(true) }
+                else
+                    break
+                Thread.sleep(interval)
+            }
+        } catch (O_O: java.lang.Exception) {
+            runOnUiThread { onASyncListener.onError(O_O) }
         }
     }
-
-
 
 
 }
